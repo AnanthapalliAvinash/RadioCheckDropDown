@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "View";
+}
+
+<h2>View</h2>
+<html>
+<head>
+
+</head>
+<body>
+    <div>
+        <%:Html.DropDownList("Test",(IEnumerable<SelectListItem>
+            )ViewData["ddl"],"Select") %>
+            <br />
+            <br />
+            <table border="1">
+                <%foreach (SelectListItem item in (IEnumerable
+                <SelectListItem>
+                    )ViewData["ddl"])
+                    {%>
+                    <tr>
+                        <td>
+                            <%:Html.CheckBox("Test", item.Selected, item.Value)%>
+                            <%:Html.Label(item.Text)%>
+                            <%:Html.Hidden(item.Value)%>
+                        </td>
+                        <td>
+                            <%:Html.RadioButton("Item", item.Value,item.Selected, "")%>
+                            <%:Html.Label(item.Text)%>
+                        </td>
+                    </tr>
+                    <%}%>
+            </table>
+    </div>
+</body>
+</html>
+
